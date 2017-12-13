@@ -3,6 +3,7 @@
 
   "name": "Drawn to Distraction?",
   "description": "This extension breaks down bad habits.",
+  "options_page": "options.html",
   "version": "1.0",
   "background": {
     "scripts": ["background.js"]
@@ -15,12 +16,12 @@
   },
 
   "permissions": [
-    "activeTab", 
+    "activeTab",
     "tabs",
     "storage",
     "webRequest",
     "webNavigation",
     "<all_urls>"
   ]
-  
+
 }
