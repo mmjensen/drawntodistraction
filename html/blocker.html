@@ -1,0 +1,86 @@
+<html>
+<style>
+html, body {
+    margin:auto;
+    width:100%;
+    height:100%;
+    background: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+div {
+    text-align: center;
+    color:#08519c;
+}
+
+div#message {
+    padding:25% 100px 20px;
+    font-size:3em;
+}
+
+div.btn {
+    margin:50px 20px auto;
+    display:inline-block;
+    padding:20px;
+    height: 40px;
+    vertical-align: top;
+    font-size: 2em;
+    width:420px;
+    color:white;
+    background:#e34a33;
+    user-select: none;
+    line-height: 1.5em;
+}
+
+div.btn#no {
+    background:#31a354;
+}
+
+div#footer {
+    color:#eeeeff;
+    position:fixed;
+    bottom:20px;
+    font-size: 2em;
+    padding-left: 40%;
+}
+
+div#dashboard {
+    color:#9999ff;
+    position:fixed;
+    top:20px;
+    right:20px;
+    font-size: 1em;
+    padding-left: 40%;
+}
+</style>
+<body>
+<div id="message">Are you sure you want <span id="service">Twitter</span> to distract you?</div>
+<div id="yes" class="btn">Yes, distract me!</div>
+<div id="no" class="btn">No, I need to focus!	&#x23ce;</div>
+<div id="dashboard">Dashboard</div>
+<div id="footer">Drawn to Distraction</div>
+<script>
+    var service = document.querySelector("#service");
+    var back = document.querySelector("#no");
+    var cont = document.querySelector("#yes");
+
+    back.onclick = dismiss;
+    cont.onclick = distract;
+
+    document.addEventListener('keydown', function(e){
+        if(e.keyCode === 13){
+            dismiss()
+        }
+    });
+
+    function distract(){
+        console.log("Selecting distraction")
+    }
+
+    function dismiss(){
+        console.log("Dimissing distraction")
+    }
+</script>
+</body>
+</html>
