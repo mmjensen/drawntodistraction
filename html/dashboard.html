@@ -10,47 +10,50 @@
         overflow:hidden;
     }
 
-
-
     #timeline {
         position:relative;
-        margin:10px 0px;
+        margin-top:10px;
         display:inline-block;
         vertical-align: top;
         width:40%;
         min-width: 400px;
         text-align: center;
-        height:300px;
+
     }
 
     #chart {
-        margin:10px 10px 0px 50px;
+        margin-top:10px;
+        margin-left:10px;
         display:inline-block;
         vertical-align: top;
-        width:40%;
+        width:30%;
         min-width: 400px;
         text-align: center;
-        height:500px;
-        overflow:hidden;
     }
 
     #chart svg {
         font-size: 2em;
     }
 
+    #details {
+        margin-top:10px;
+        display:inline-block;
+        vertical-align: top;
+        width:25%;
+        text-align: center;
+    }
 
-    .zoom {
+    #details #info {
+        padding: 5px 20px;
+        text-align: left;
+        font-size:1.5em;
+    }
+
+    .brush .selection {
         cursor: move;
-        fill: none;
         pointer-events: all;
     }
 
-    .thumb {
-        stroke: #aaaaff;
-        fill: blue;
-        fill-opacity: .125;
-        shape-rendering: crispEdges;
-    }
 
     .yLabel {
         font-family: 'Arial';
@@ -69,7 +72,10 @@
     <div id="timeline">
         <h2>Frequency of visits over time</h2>
     </div>
-
+    <div id="details">
+        <h2>Details</h2>
+        <div id="info"></div>
+    </div>
 
     <script src="../lib/d3/d3.min.js"></script>
     <script src="../lib/dashboard.js"></script>
