@@ -8,6 +8,70 @@
         background: white;
         font-family: Arial;
         overflow:hidden;
+
+    }
+
+    #header {
+        width:100%;
+        height:120px;
+        background:rgb(40, 44,53);
+        padding:20px;
+        text-align:center;
+    }
+
+    #header h1 {
+        color:white;
+        font-size:3em;
+        user-select: none;
+    }
+
+    #header .button {
+        position:relative;
+        display:inline-block;
+        padding:5px 20px;
+        margin:5px;
+        background:white;
+        user-select: none;
+        cursor:select;
+    }
+
+    #header .button.selected:before {
+        background: none;
+        border: 1px solid #fff;
+        content: "";
+        display: block;
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        pointer-events: none;
+    }
+
+    #scope {
+        width:100%;
+        color:rgb(40, 44,53);
+        text-align: center;
+    }
+
+    #scope .nav, #scope h1 {
+        display:inline-block;
+        font-size:2em;
+        user-select:none;
+    }
+
+    #scope .nav {
+        opacity:0.5;
+        margin:20px;
+    }
+
+    #scope .nav#right{
+        opacity:0.5;
+        transform:rotate(180deg)
+    }
+
+    #scope h1 span {
+        text-decoration: underline;
     }
 
     #timeline {
@@ -18,7 +82,6 @@
         width:40%;
         min-width: 400px;
         text-align: center;
-
     }
 
     #chart {
@@ -36,17 +99,21 @@
     }
 
     #details {
-        margin-top:10px;
+        margin:10px 20px;
         display:inline-block;
         vertical-align: top;
-        width:25%;
-        text-align: center;
+        width:20%;
+        padding: 5px 50px;
+        text-align: left;
     }
 
-    #details #info {
-        padding: 5px 20px;
-        text-align: left;
-        font-size:1.5em;
+    #details div {
+        font-size: 1.5em;
+        padding-left:50px;
+    }
+
+    #details h2 {
+        text-align: center;
     }
 
     .brush .selection {
@@ -64,7 +131,21 @@
 </style>
 
 <body>
-    <h1>Explore your distractions</h1>
+    <div id="header">
+        <h1>Explore your distractions</h1>
+        <div class="button selected">Day</div>
+        <div class="button">Week</div>
+        <div class="button">Month</div>
+        <!--<div class="button">Year</div>-->
+    </div>
+    <div id="scope">
+        <div class="nav" id="left">&#8678;</div>
+
+        <h1>Looking at data from <span>today</span></h1>
+        <div class="nav" id="right">&#8678;</div>
+
+    </div>
+
     <div id="chart">
         <h2>Time spent on sites</h2>
     </div>
@@ -73,8 +154,19 @@
         <h2>Frequency of visits over time</h2>
     </div>
     <div id="details">
-        <h2>Details</h2>
-        <div id="info"></div>
+        <h2>Site information<span id="site"></span></h2>
+        <div>You have visited this site <span id="visits"></span> today</div>
+        <div>Visits overall:  <span id="visits_overall"></span></div>
+        <div>You have spendt <span id="time"></span> today</div>
+        <div>Average time per visit is <span id="avg_time"></span></div>
+
+        <ul>
+            <legend>Todo</legend>
+            <li>Would be nice with an overall visit count / time spendt</li>
+            <li>Would be nice to compare todays with overall and perhaps a week / mont ago</li>
+            <li>Would be nice to trace which sites one comes from and where one goes after</li>
+            <li>We also need to pinpoint frequent patterns in time</li>
+        </ul>
     </div>
 
     <script src="../lib/d3/d3.min.js"></script>
