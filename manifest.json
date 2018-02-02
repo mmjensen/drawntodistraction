@@ -3,14 +3,14 @@
 
   "name": "Drawn to Distraction?",
   "description": "This extension breaks down bad habits.",
-  "options_page": "html/dashboard.html",
+  "options_page": "client/options.html",
   "version": "1.0",
   "background": {
-    "scripts": ["lib/sha1.js", "lib/log.js"]
+    "scripts": ["js/setup.js", "js/log.js"]
   },
   "content_scripts":[{
     "matches":["http://*/*","https://*/*"],
-    "js":["lib/logInject.js"]
+    "js":["js/logInject.js"]
   }],
   "browser_action": {
     "default_icon": "icon.png",
@@ -20,6 +20,7 @@
   "permissions": [
     "activeTab",
     "tabs",
+    "contextMenus",
     "storage",
     "webNavigation",
     "<all_urls>","webRequest","webRequestBlocking"

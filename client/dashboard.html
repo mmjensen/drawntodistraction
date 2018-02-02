@@ -1,0 +1,46 @@
+<html>
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<body>
+    <div id="header">
+        <h1>Explore your distractions</h1>
+        <div class="button selected">Day</div>
+        <div class="button">Week</div>
+        <div class="button">Month</div>
+        <!--<div class="button">Year</div>-->
+    </div>
+    <div id="scope">
+        <div class="nav" id="left">&#8678;</div>
+
+        <h1>Looking at data from <span>today</span></h1>
+        <div class="nav" id="right">&#8678;</div>
+
+    </div>
+
+    <div id="chart">
+        <h2>Time spent on sites</h2>
+    </div>
+
+    <div id="timeline">
+        <h2>Frequency of visits over time</h2>
+    </div>
+    <div id="details">
+        <h2>Site information<span id="site"></span></h2>
+        <div>You have visited this site <span id="visits"></span> today</div>
+        <div>Visits overall:  <span id="visits_overall"></span></div>
+        <div>You have spendt <span id="time"></span> today</div>
+        <div>Average time per visit is <span id="avg_time"></span></div>
+
+        <ul>
+            <legend>Todo</legend>
+            <li>Would be nice with an overall visit count / time spendt</li>
+            <li>Would be nice to compare todays with overall and perhaps a week / mont ago</li>
+            <li>Would be nice to trace which sites one comes from and where one goes after</li>
+            <li>We also need to pinpoint frequent patterns in time</li>
+        </ul>
+    </div>
+
+    <script src="js/d3/d3.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

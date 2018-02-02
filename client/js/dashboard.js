@@ -1,9 +1,7 @@
-
-
 var sites;
-var scopeVerbatim = "day";
-var scopeRange = calculateRange(scopeVerbatim, new Date())
-scopeRange[1] = Date.now()
+var scope = "day";
+var interval = calculateRange(scope, new Date())
+interval[1] = Date.now()
 
 var details = document.querySelector('#details');
 var info = details.querySelector('#info');
@@ -17,7 +15,14 @@ var colors = ['#ff8080', '#bf3300', '#ff8c40', '#4c3b26', '#e6e2ac', '#798060', 
 
 bootstrap()
 
-function bootstrap(){
+function bootstrap() {
+    var extension = chrome.extension.getBackgroundPage();
+    var user = extension.getUser();
+    //we need to do the double check
+    if (!user) {
+        chrome.runtime.openOptionsPage()
+    }
+
     document.querySelector("#header").onclick = function(e) {
         var el = e.target;
         if (el.classList.contains("button") && !el.classList.contains("selected")) {
@@ -27,40 +32,43 @@ function bootstrap(){
             render()
         }
     }
-    /*
-    document.querySelector(".nav#left").onclick = function(e){
-        scopeRange = calculateRange(scopeVerbatim, scopeRange[0])
 
-        render()
-    }
-
-
-    document.querySelector(".nav#right").onclick = function(e){
-
-    }*/
 
     setupGraphs()
     render()
 }
 
+function render() {
+    fetchData().then(function(data){
+        console.log(data)
+    },function(err){
+        console.log(err)
+    })
+}
+
+
+
+/*
 function render(){
     sortData().then(function(){
         renderGraphs()
     })
-}
+}*/
 
-function wrangle(){
+
+
+function wrangle() {
 
     chrome.storage.local.get(null, function(items) {
         sites = {}
 
         //for each site we need!
-            //stats
-            //
+        //stats
+        //
 
     })
     //how often do we need to re-wrangle the all time stats? //on reloads? //refocus?
-    //we need two datasets -- all time stats    
+    //we need two datasets -- all time stats
     //window.onfocus() -> rewrangle and re-sort data!
 }
 
@@ -74,7 +82,7 @@ function sortData(scope) {
             sites = [] // we empty the global object
 
             for (var k in items) {
-                if (k > scopeRange[0].valueOf() ) { //Only add the sites that has been visited within the timeframe
+                if (k > scopeRange[0].valueOf()) { //Only add the sites that has been visited within the timeframe
                     var o = items[k]
                     if (o.site !== 'outside' && o.site !== 'newtab') {
 
@@ -82,16 +90,16 @@ function sortData(scope) {
                             return el.name === o.site;
                         })
 
-                        if(index === -1){
+                        if (index === -1) {
                             sites.push({
                                 name: o.site,
                                 sessions: [],
                                 duration: 0
                             })
-                            index = sites.length-1;
+                            index = sites.length - 1;
                         }
 
-                        var dur = Math.floor( ( o.end - o.start ) / 1000)
+                        var dur = Math.floor((o.end - o.start) / 1000)
                         sites[index].sessions.push({
                             duration: dur,
                             start: o.start,
@@ -103,9 +111,9 @@ function sortData(scope) {
                 }
             }
             var placeholder = []
-            for(var i = 0; i < sites.length;i++){
-                if(sites[i].duration >= 60){
-                        placeholder.push(sites[i])
+            for (var i = 0; i < sites.length; i++) {
+                if (sites[i].duration >= 60) {
+                    placeholder.push(sites[i])
                 }
             }
             sites = placeholder.sort(sortSites)
@@ -114,7 +122,7 @@ function sortData(scope) {
     })
 }
 
-function setupGraphs(){
+function setupGraphs() {
     var chart = document.querySelector("#chart");
     var width = chart.offsetWidth;
     d3.select(chart).append('svg')
@@ -133,9 +141,9 @@ function setupGraphs(){
         .attr("id", "axisGroup")
         .attr("width", width)
 
-        d3.select(timeline).append("svg")
-            .attr("id", "thumbSvg")
-            .attr("width", width)
+    d3.select(timeline).append("svg")
+        .attr("id", "thumbSvg")
+        .attr("width", width)
 
     d3.select(timeline).append('svg')
         .attr("id", "thumbAxisGroup")
@@ -144,7 +152,7 @@ function setupGraphs(){
 
 }
 
-function renderGraphs(){
+function renderGraphs() {
     renderBarChart()
     renderActivityGraph()
 }
@@ -275,8 +283,8 @@ function renderActivityGraph(scope) {
 
     var thumbXAxis = d3.axisBottom(thumbX).tickFormat(getTickFormatShort(scopeVerbatim))
     var thumbAxisGroup = d3.select("#thumbAxisGroup")
-         .attr("height", 50)
-         .call(thumbXAxis)
+        .attr("height", 50)
+        .call(thumbXAxis)
 
     for (var i = 0; i < sites.length; i++) {
         var site = sites[i]
@@ -400,10 +408,10 @@ function renderActivityGraph(scope) {
     thumbSvg.call(zoom);
 }
 
-function showDetails(siteObj){
+function showDetails(siteObj) {
     var details = document.querySelector("#details")
     var site = details.querySelector("#site");
-    site.innerHTML = "on " +  siteObj.name
+    site.innerHTML = "on " + siteObj.name
     var visits = details.querySelector("#visits");
     visits.innerHTML = siteObj.sessions.length;
 
@@ -413,11 +421,11 @@ function showDetails(siteObj){
     var time = details.querySelector("#time");
     var dur = siteObj.duration;
     var s = dur % 60;
-    var m =  (dur / 60) % 60;
+    var m = (dur / 60) % 60;
     var h = dur % 3600;
     time.innerHTML = dur + " seconds "
     var avg_time = details.querySelector("#avg_time");
-    var avg_seconds = dur/siteObj.sessions.length;
+    var avg_seconds = dur / siteObj.sessions.length;
     avg_time.innerHTML = Math.floor(avg_seconds) + " seconds";
 
     site.innerHTML = " on " + siteObj.name
@@ -433,31 +441,55 @@ function sortSites(a, b) {
     return 0;
 }
 
-function getTickFormat(scopeVerbatim){
-    if(scopeVerbatim === "day") return d3.timeFormat("%H:%M")
-    if(scopeVerbatim === "week") return d3.timeFormat("%a %d %H:%M")
-    if(scopeVerbatim === "month") return d3.timeFormat("%a %d")
+function getTickFormat(scopeVerbatim) {
+    if (scopeVerbatim === "day") return d3.timeFormat("%H:%M")
+    if (scopeVerbatim === "week") return d3.timeFormat("%a %d %H:%M")
+    if (scopeVerbatim === "month") return d3.timeFormat("%a %d")
     //if(scopeVerbatim === "year") return d3.timeFormat("%b %d")
     return d3.timeFormat("%H:%M")
 }
 
-function getTickFormatShort(scopeVerbatim){
-    if(scopeVerbatim === "day") return d3.timeFormat("%H:%M")
-    if(scopeVerbatim === "week") return d3.timeFormat("%a %d")
-    if(scopeVerbatim === "month") return d3.timeFormat("%b %d")
+function getTickFormatShort(scopeVerbatim) {
+    if (scopeVerbatim === "day") return d3.timeFormat("%H:%M")
+    if (scopeVerbatim === "week") return d3.timeFormat("%a %d")
+    if (scopeVerbatim === "month") return d3.timeFormat("%b %d")
     //if(scopeVerbatim === "year") return d3.timeFormat("%b %d")
     return d3.timeFormat("%H:%M")
 }
 
-function calculateRange(scopeVerbatim, newEndDate){
+function calculateRange(scopeVerbatim, newEndDate) {
     var start = new Date()
-    if(scopeVerbatim === "day"){
-        start.setHours(newEndDate.getHours()-24);
+    if (scopeVerbatim === "day") {
+        start.setHours(newEndDate.getHours() - 24);
     } else if (scopeVerbatim === "week") {
-        start.setDate(newEndDate.getDate()-7);
+        start.setDate(newEndDate.getDate() - 7);
     } else if (scopeVerbatim === "month") {
-        start.setMonth(newEndDate.getMonth()-1);
+        start.setMonth(newEndDate.getMonth() - 1);
     }
 
     return [start, newEndDate]
+}
+
+
+function fetchData(interval) {
+    return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://cio.cs.au.dk/drawntodistraction/sites", true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onload = function(e) {
+                if (e.currentTarget.status === 200) {
+                    resolve(e.currentTarget.responseText)
+                } else {
+                    reject(e)
+                }
+            }
+            xhr.onerror = function(e) {
+                reject(e)
+            }
+            xhr.send(JSON.stringify({
+                userID: userID,
+                interval: interval
+            }));
+        }
+    }
 }
