@@ -4,17 +4,21 @@ var userID;
 var mousestart;
 
 bootstrap()
-
 function bootstrap(){
     chrome.storage.local.get("userID", function(item){
         if(item.hasOwnProperty("userID")){
             userID = item.userID;
-
             startLogging()
         } else {
             chrome.runtime.openOptionsPage()
         }
     });
+}
+
+function wipeUser(){
+    chrome.storage.local.remove("userID", function(e){
+        console.log(e)
+    })
 }
 
 function startLogging() {
@@ -108,20 +112,6 @@ function startLogging() {
     }, 60000);
 
 }
-    //TODO: The introduction of prev and next creates an issue, as it would be "newtab"
-    //in many instances. Consider saving the previous and next instances and check for
-    // newtab and external.
-
-
-/* Useful for claering local storage in development
-chrome.storage.local.clear(function() {
-    var error = chrome.runtime.lastError;
-    if (error) {
-        console.error(error);
-    }
-});
-*/
-
 
 //We want to handle cases where the extension is refreshed and we need to update injected scripts
 //see: https://groups.google.com/a/chromium.org/d/msg/chromium-extensions/QLC4gNlYjbA/URnEOjAsCQAJ
@@ -282,12 +272,9 @@ function registerUser(name, isoDate, callback) {
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onload = function(e) {
         if (e.currentTarget.status === 200) {
-            console.log("posted to server")
             var data = JSON.parse(e.currentTarget.responseText);
             userID = data.cioid;
-            console.log("2dlkaj")
             chrome.storage.local.set({userID:userID});
-            console.log(userID)
             startLogging();
             callback()
         } else {
