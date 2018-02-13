@@ -25,6 +25,6 @@ var categories = {
     "Travel":["Accommodation and Hotels","Airlines and Airports","Roads and Highways","Tourism"],
     "Adult":[],
 
-    "Local": ["Localhost", "IP", "Extension", "New Tab", "History", "Downloads", "Bookmarks","Settings", "File"],
+    "Local": ["Localhost", "IP", "Extension", "New Tab", "History", "Downloads", "Bookmarks","Settings", "File", "Outside browser"],
     "Unknown":[]
 }

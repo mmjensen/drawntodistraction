@@ -3,7 +3,14 @@ body, html {
 
 }
 
+#authentication {
+    padding: 10px;
+    width:300px;
+    margin-bottom: 10px;
+}
+
 table {
+
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width:1200px;

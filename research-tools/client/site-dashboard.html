@@ -1,134 +1,237 @@
 <html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
+
 <body>
+    <input type="text" id="authentication"></input>
     <table id="sites">
-<tr id="t_head"><th>Site</th><th class="category">Category</th><th>Alias'</th><th>is alias?</th><th>Update</th></tr>
-<tr>
-</table>
-<script src="categories.json"></script>
-<script src="sites.json"></script>
-<script>
-    var list = document.querySelector("#sites");
+        <tr id="t_head">
+            <th>Site</th>
+            <th class="category">Category</th>
+            <th>Alias'</th>
+            <th>is alias?</th>
+            <th>Update</th>
+        </tr>
+        <tr>
+    </table>
+    <script src="categories.json"></script>
+    <!--<script src="sites.json"></script>-->
+    <script>
+        var table = document.querySelector("#sites");
+        var sites = {}, siterows;
 
-    for( var i = 0 ; i < sites.length ; i++ ) {
-            addSite(sites[i])
-    }
+        getSites(function(data) {
 
-    function addSite(jsObj){
-        //if jsonObj has ?
-        var r = list.insertRow()
-        site = r.insertCell()
-        site.innerHTML = jsObj.site
+            for (var i = 0; i < data.length; i++) {
+                sites[data[i].site] = data[i]
+                addSite(data[i])
+            }
 
-        category = r.insertCell()
-        category.classList.add("category")
-        var select = document.createElement("select")
-        select.classList.add("cat")
+            siterows = table.querySelectorAll(".site");
+        })
 
-        for ( var k in categories){
-            opt = document.createElement("option")
-            opt.value = k;
-            opt.innerHTML = k;
-            select.appendChild(opt)
+        function addSite(jsObj) {
+            //if jsonObj has ?
+            var r = table.insertRow()
+            site = r.insertCell()
+            site.classList.add("site")
+            site.innerHTML = jsObj.site
+
+            category = r.insertCell()
+            category.classList.add("category")
+            var select = document.createElement("select")
+            select.classList.add("cat")
+
+            for (var k in categories) {
+                opt = document.createElement("option")
+                opt.value = k;
+                opt.innerHTML = k;
+                select.appendChild(opt)
+            }
+
+            select.value = "Unknown"
+            if(jsObj.hasOwnProperty("category")){
+                select.value = jsObj.category
+            }
+
+            select.onchange = categoryChangeHandler
+            category.appendChild(select)
+
+            var selectnd = document.createElement("select")
+
+            selectnd.classList.add("subcategory")
+            if(jsObj.hasOwnProperty("subcategory")){
+                var subs = categories[jsObj.category]
+                for (var i = 0; i < subs.length; i++) {
+                    opt = document.createElement("option")
+                    opt.value = subs[i];
+                    opt.innerHTML = subs[i];
+                    selectnd.appendChild(opt)
+                }
+
+                selectnd.value = jsObj.subcategory
+            } else {
+                selectnd.classList.add("hidden")
+            }
+            selectnd.onchange = subCategoryChangeHandler
+
+            category.appendChild(selectnd)
+
+            alias = r.insertCell()
+            alias.innerHTML = '<input type="text" placeholder="alias, comma seperated">'
+            if(jsObj.hasOwnProperty("alias") && jsObj.alias.length > 0){
+                alias.querySelector("input").value = jsObj.alias.join(",")
+            }
+            alias.classList.add("alias")
+            alias.querySelector("input").onchange = blurHandler
+
+            is_alias = r.insertCell()
+
+
+
+            if(jsObj.hasOwnProperty("is_alias") && jsObj.is_alias == true){
+                is_alias.innerHTML = '<input type="checkbox" checked="true">';
+                select.classList.add("hidden")
+                selectnd.classList.add("hidden")
+            } else {
+                is_alias.innerHTML = '<input type="checkbox">';
+            }
+
+            is_alias.querySelector("input").onclick = aliasHandler
+            is_alias.classList.add("is_alias")
+
+            update = r.insertCell()
+            update.innerHTML = '<div class="update hidden">Update</div>';
+            update.onclick = updateHandler
+
         }
 
-        //set value based on object
-        select.value = "Unknown"
-        select.onchange = categoryChangeHandler
-        category.appendChild(select)
-
-        var selectnd = document.createElement("select")
-
-        selectnd.classList.add("sub")
-        selectnd.classList.add("hidden")
-
-        selectnd.onchange = subCategoryChangeHandler
-        // set value based on object
-
-        category.appendChild(selectnd)
-
-        alias = r.insertCell()
-        alias.innerHTML = '<input type="text" placeholder="alias, comma seperated">'
-        alias.onblur = blurHandler
-
-        is_alias = r.insertCell()
-        is_alias.innerHTML = '<input type="checkbox">';
-        is_alias.onclick = aliasHandler
-
-        update = r.insertCell()
-        update.innerHTML = '<div class="update hidden">Update</div>';
-        update.onclick = updateHandler
-
-    }
-
-    function subCategoryChangeHandler(e){
-        siteChanged(e.target.parentNode)
-    }
-
-    function categoryChangeHandler(e){
-        var sub = e.target.parentNode.querySelector(".sub")
-        sub.innerHTML = ""
-        var subs = categories[e.target.value]
-        for ( var i = 0; i < subs.length; i++ ) {
-            opt = document.createElement("option")
-            opt.value = subs[i];
-            opt.innerHTML = subs[i];
-            sub.appendChild(opt)
+        function subCategoryChangeHandler(e) {
+            siteChanged(e.target.parentNode.parentNode)
         }
-        sub.classList.remove("hidden")
-        siteChanged(e.target.parentNode.parentNode)
-    }
 
-    function blurHandler(e){
-        console.log(e)
-    }
-
-    function updateHandler(e){
-        var row = e.target.parentNode.parentNode
-        e.target.classList.add("hidden")
-    }
-
-    function aliasHandler(e){
-        console.log(e)
-    }
-
-    function siteChanged(row){
-        row.querySelector(".update").classList.remove("hidden")
-    }
-
-    function getSites(callback){
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://cio.cs.au.dk/drawntodistraction/sites", true);
-        xhr.setRequestHeader("Content-type", "application/json");
-        xhr.onload = function(e) {
-            if (e.currentTarget.status === 200) {
-                console.log(e.currentTarget.responseText)
-            } else { console.log("Onload error") }
+        function categoryChangeHandler(e) {
+            var sub = e.target.parentNode.querySelector(".subcategory")
+            sub.innerHTML = ""
+            var subs = categories[e.target.value]
+            for (var i = 0; i < subs.length; i++) {
+                opt = document.createElement("option")
+                opt.value = subs[i];
+                opt.innerHTML = subs[i];
+                sub.appendChild(opt)
+            }
+            sub.classList.remove("hidden")
+            siteChanged(e.target.parentNode.parentNode)
         }
-        xhr.onerror = function(e) {
-            console.log("Onerror error")
-        }
-        xhr.send();
-    }
 
-    function postSite(site){
-        // Sending and receiving data in JSON format using POST method
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://cio.cs.au.dk/drawntodistraction/sites", true);
-        xhr.setRequestHeader("Content-type", "application/json");
-        xhr.onload = function(e) {
-            if (e.currentTarget.status === 200) {
-                console.log("Saved site to server!")
-            } else { console.log("Onload error") }
+        function blurHandler(e) {
+            siteChanged(e.target.parentNode.parentNode)
         }
-        xhr.onerror = function(e) {
-            console.log("Onerror error")
+
+        function updateHandler(e) {
+            var row = e.target.parentNode.parentNode
+            var obj = {}
+            obj.site = row.querySelector(".site").innerHTML
+            obj.category = row.querySelector(".cat").value
+            obj.subcategory = siteChanged(e.target.parentNode.parentNode)
+
+
+            obj.alias = []
+            var alias = row.querySelector(".alias input").value.trim()
+            if(alias != ""){
+                    alias = alias.split(",")
+                    for (var i = 0; i < alias.length; i++) {
+                        if(sites.hasOwnProperty(alias[i].trim())){
+                            var s = sites[alias[i].trim()]
+
+                            if( ( !s.hasOwnProperty("alias") || ( s.hasOwnProperty("alias") && s.alias.length == 0) ) ){
+                                obj.alias.push(alias[i].trim())
+                                if(!s.hasOwnProperty("is_alias") || (s.hasOwnProperty("is_alias") && s.is_alias == false)){
+                                    s.is_alias = true;
+                                    postSite(s);
+                                    for (var k = 0; k < siterows.length; k++) {
+                                        if (siterows[k].innerHTML === s.site) {
+                                            siterows[k].parentNode.querySelector(".is_alias input").checked = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+            }
+
+
+            obj.is_alias = row.querySelector(".is_alias input").checked
+
+            postSite(obj)
+            e.target.classList.add("hidden")
         }
-        xhr.send(JSON.stringify(site));
-    }
-</script>
+
+        function aliasHandler(e) {
+            siteChanged(e.target.parentNode.parentNode)
+        }
+
+        function siteChanged(row) {
+            row.querySelector(".update").classList.remove("hidden")
+        }
+
+        function getSites(callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://cio.cs.au.dk/drawntodistraction/sites", true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onload = function(e) {
+                if (e.currentTarget.status === 200) {
+                    try {
+                        var data = JSON.parse(e.currentTarget.responseText)
+                        callback(data)
+                    } catch (e) {
+                        console.log(e)
+                    }
+                } else {
+                    alert("Error in posting to site: "+e.currentTarget.status)
+                }
+            }
+            xhr.onerror = function(e) {
+                alert("Error in posting to site: "+e)
+            }
+            xhr.send();
+        }
+
+        function postSite(site) {
+            var auth = document.querySelector("#authentication").value
+            delete site._id
+            delete site.subcateogory
+            if(auth){
+                var json = {
+                    "userAuth": auth,
+                    "site": site
+                }
+
+                // Sending and receiving data in JSON format using POST method
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "https://cio.cs.au.dk/drawntodistraction/sites", true);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.onload = function(e) {
+                    if (e.currentTarget.status === 200) {
+                        console.log("Saved site to server!")
+                    } else {
+                        alert("Error in posting to site: "+e.currentTarget.status)
+                    }
+                }
+                xhr.onerror = function(e) {
+                    alert("Error in posting to site: "+e)
+                }
+                xhr.send(JSON.stringify(json));
+            } else {
+                alert("Missing authentication string")
+            }
+
+        }
+    </script>
 
 </body>
+
 </html>

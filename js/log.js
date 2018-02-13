@@ -202,7 +202,7 @@ function getHostname(url) {
     var host = parser.host
     if(protocol === "file:"){
         return "file"
-    } else if (protocol == "https:" || protocol == "https:"){
+    } else if (protocol == "http:" || protocol == "https:"){
         return host.replace(/^(www)(\.)/i,"");
     } else {
         return protocol + host;
