@@ -139,7 +139,7 @@
             var obj = {}
             obj.site = row.querySelector(".site").innerHTML
             obj.category = row.querySelector(".cat").value
-            obj.subcategory = siteChanged(e.target.parentNode.parentNode)
+            obj.subcategory = row.querySelector(".subcategory").value
 
 
             obj.alias = []
@@ -153,6 +153,7 @@
                             if( ( !s.hasOwnProperty("alias") || ( s.hasOwnProperty("alias") && s.alias.length == 0) ) ){
                                 obj.alias.push(alias[i].trim())
                                 if(!s.hasOwnProperty("is_alias") || (s.hasOwnProperty("is_alias") && s.is_alias == false)){
+                                    
                                     s.is_alias = true;
                                     postSite(s);
                                     for (var k = 0; k < siterows.length; k++) {
@@ -205,6 +206,7 @@
         }
 
         function postSite(site) {
+            console.log(site)
             var auth = document.querySelector("#authentication").value
             delete site._id
             delete site.subcateogory
