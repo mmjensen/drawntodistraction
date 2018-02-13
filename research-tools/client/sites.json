@@ -1,0 +1,1207 @@
+var sites = 
+[
+  {
+    "_id": "5a81b1f9d571cc61af7aacf5",
+    "site": null
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacf6",
+    "site": "drawntodistraction"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacf7",
+    "site": "outside"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacf8",
+    "site": "newtab"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacf9",
+    "site": "www.dr.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacfa",
+    "site": "twitter.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacfb",
+    "site": "www.linkedin.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacfc",
+    "site": "www.google.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacfd",
+    "site": "bl.ocks.org"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacfe",
+    "site": "github.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aacff",
+    "site": "stackoverflow.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad00",
+    "site": "google.github.io"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad01",
+    "site": "scholar.google.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad02",
+    "site": "www.w3schools.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad03",
+    "site": "www.key-shortcut.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad04",
+    "site": "developer.mozilla.org"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad05",
+    "site": "t.co"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad06",
+    "site": "en.wikipedia.org"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad07",
+    "site": "protonmail.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad08",
+    "site": "mail.protonmail.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad09",
+    "site": "www.mmorpg.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad0a",
+    "site": "www.similarweb.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad0b",
+    "site": "www.youtube.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad0c",
+    "site": "www.proshop.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad0d",
+    "site": "www.ordbogen.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad0e",
+    "site": "imgur.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad0f",
+    "site": "www.megadeth.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad10",
+    "site": "www.davidbarronfurniture.co.uk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad11",
+    "site": "www.statsbiblioteket.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad12",
+    "site": "www.stabyhoun.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad13",
+    "site": "www.theodysseyonline.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad14",
+    "site": "www.google.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad15",
+    "site": "www.breton.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad16",
+    "site": "askubuntu.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad17",
+    "site": "www.digitalocean.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad18",
+    "site": "cio.cs.au.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad19",
+    "site": "cs.au.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad1a",
+    "site": "www.cyberciti.biz"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad1b",
+    "site": "www.fine-tools.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad1c",
+    "site": "www.theunpluggedwoodshop.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad1d",
+    "site": "theunpluggedwoodshop.myshopify.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad1e",
+    "site": "www.dictum.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad1f",
+    "site": "www.valutakurser.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad20",
+    "site": "www.ebay.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad21",
+    "site": "www.veritastools.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad22",
+    "site": "www.mcguckin.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad23",
+    "site": "www.amazon.co.uk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad24",
+    "site": "www.axminster.co.uk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad25",
+    "site": "www.linaa.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad26",
+    "site": "www.ashevillehardware.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad27",
+    "site": "www.highlandwoodworking.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad28",
+    "site": "www.leevalley.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad29",
+    "site": "www.amtf.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad2a",
+    "site": "math.stackexchange.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad2b",
+    "site": "www.al-bank.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad2c",
+    "site": "www.byggerietsankenaevn.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad2d",
+    "site": "www.trustpilot.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad2e",
+    "site": "allanp.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad2f",
+    "site": "www.bolius.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad30",
+    "site": "www.marybell.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad31",
+    "site": "danskespil.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad32",
+    "site": "edition.cnn.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad33",
+    "site": "www.nephew.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad34",
+    "site": "vanillajstoolkit.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad35",
+    "site": "labos.ulg.ac.be"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad36",
+    "site": "www.amazon.de"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad37",
+    "site": "www.antique-used-tools.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad38",
+    "site": "forums.finewoodworking.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad39",
+    "site": "thehardwarestore.com.au"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad3a",
+    "site": "picclick.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad3b",
+    "site": "koebhund.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad3c",
+    "site": "www.grandsuniq.mono.net"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad3d",
+    "site": "www.dyrlaegevagten.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad3e",
+    "site": "www.idenyt.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad3f",
+    "site": "slickcrust.tumblr.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad40",
+    "site": "www.instagram.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad41",
+    "site": "techcrunch.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad42",
+    "site": "signal.org"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad43",
+    "site": "www.zetland.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad44",
+    "site": "www.dalmatin.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad45",
+    "site": "www.theguardian.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad46",
+    "site": "www.reddit.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad47",
+    "site": "www.nytimes.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad48",
+    "site": "www.washingtonpost.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad49",
+    "site": "politiken.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad4a",
+    "site": "portal.opendata.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad4b",
+    "site": "www.information.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad4c",
+    "site": "www.dropbox.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad4d",
+    "site": "soundcloud.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad4e",
+    "site": "help.surveymonkey.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad4f",
+    "site": "www.surveyxact.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad50",
+    "site": "www.surveyxact.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad51",
+    "site": "www.ramboll.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad52",
+    "site": "medarbejdere.au.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad53",
+    "site": "www.survey-xact.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad54",
+    "site": "view.publitas.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad55",
+    "site": "help.survey-xact.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad56",
+    "site": "studerende.au.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad57",
+    "site": "www.topbestalternatives.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad58",
+    "site": "www.bt.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad59",
+    "site": "stiften.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad5a",
+    "site": "www.midttrafik.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad5b",
+    "site": "www.letbanen.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad5c",
+    "site": "blackboard.au.dk"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad5d",
+    "site": "confs.precisionconference.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad5e",
+    "site": "www.maccosmetics.com"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad5f",
+    "site": "dgo2018.dgsociety.org"
+  },
+  {
+    "_id": "5a81b1f9d571cc61af7aad60",
+    "site": "www.estate.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad61",
+    "site": "indberet.virk.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad62",
+    "site": "visualgo.net"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad63",
+    "site": "www.slideteam.net"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad64",
+    "site": "pi-hole.net"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad65",
+    "site": "www.raspberrypi.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad66",
+    "site": "director.downloads.raspberrypi.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad67",
+    "site": "wayf.au.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad68",
+    "site": "wayf.wayf.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad69",
+    "site": "elinux.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad6a",
+    "site": "192.168.1.1"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad6b",
+    "site": "eics.acm.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad6c",
+    "site": "gist.github.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad6d",
+    "site": "golang.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad6e",
+    "site": "board-game-challenge.mobilize.io"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad6f",
+    "site": "www.kristeligt-dagblad.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad70",
+    "site": "chi2018.acm.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad71",
+    "site": "webstrates.net"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad72",
+    "site": "www.ics.uci.edu"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad73",
+    "site": "www.lri.fr"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad74",
+    "site": "wx7cf7zp2h.scholar.serialssolutions.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad75",
+    "site": "dl.acm.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad76",
+    "site": "www.dgp.toronto.edu"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad77",
+    "site": "www.sciencedirect.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad78",
+    "site": "ac.els-cdn.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad79",
+    "site": "webstrates.cs.au.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad7a",
+    "site": "arstechnica.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad7b",
+    "site": "drive.google.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad7c",
+    "site": "easychair.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad7d",
+    "site": "www.b.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad7e",
+    "site": "ing.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad7f",
+    "site": "www.acm.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad80",
+    "site": "lifehacker.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad81",
+    "site": "docs.google.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad82",
+    "site": "logosconsult.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad83",
+    "site": "saintcav.tumblr.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad84",
+    "site": "www.ekkofilm.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad85",
+    "site": "newsbreak.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad86",
+    "site": "kursuskatalog.au.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad87",
+    "site": "www.auh.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad88",
+    "site": "www.en.auh.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad89",
+    "site": "www.royalacademy.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad8a",
+    "site": "soundvenue.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad8b",
+    "site": "www.sharebetter.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad8c",
+    "site": "alexeyza.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad8d",
+    "site": "marcio.io"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad8e",
+    "site": "www.billboard.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad8f",
+    "site": "gretavanfleet.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad90",
+    "site": "cryptic.io"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad91",
+    "site": "localhost"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad92",
+    "site": "interactions.acm.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad93",
+    "site": "blog.golang.org"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad94",
+    "site": "kev.inburke.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad95",
+    "site": "tex.stackexchange.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad96",
+    "site": "history"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad97",
+    "site": "www.utu.fi"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad98",
+    "site": "recieved.co.uk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad99",
+    "site": "www.bloomberg.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad9a",
+    "site": "is.cuni.cz"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad9b",
+    "site": "www.phpied.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad9c",
+    "site": "googlechrome.github.io"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad9d",
+    "site": "www.opendata.dk"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad9e",
+    "site": "extensions"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aad9f",
+    "site": "developer.chrome.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aada0",
+    "site": "external"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aada1",
+    "site": "community.apigee.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aada2",
+    "site": "httpstatuses.com"
+  },
+  {
+    "_id": "5a81b1fad571cc61af7aada3",
+    "site": "wincent.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aada4",
+    "site": "chrome.google.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aada5",
+    "site": "odetocode.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aada6",
+    "site": "nyheder.tv2.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aada7",
+    "site": "mail.google.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aada8",
+    "site": "www.kora.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aada9",
+    "site": "www.vive.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadaa",
+    "site": "vive.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadab",
+    "site": "www.dst.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadac",
+    "site": "statistikbanken.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadad",
+    "site": "nypost.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadae",
+    "site": "chi2017.acm.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadaf",
+    "site": "sigchi.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb0",
+    "site": "www.lt-innovate.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb1",
+    "site": "extras.denverpost.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb2",
+    "site": "www.spacesyntax.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb3",
+    "site": "denverconvention.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb4",
+    "site": "www.usingdatasolutions.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb5",
+    "site": "d-scholarship.pitt.edu"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb6",
+    "site": "www.foedevarebanken.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb7",
+    "site": "nyheder.foedevarebanken.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb8",
+    "site": "www.au.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadb9",
+    "site": "ugenr.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadba",
+    "site": "newsroom.au.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadbb",
+    "site": "link.springer.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadbc",
+    "site": "www.tandfonline.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadbd",
+    "site": "delivery.acm.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadbe",
+    "site": "wayf.survey-xact.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadbf",
+    "site": "s3.amazonaws.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc0",
+    "site": "aisel.aisnet.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc1",
+    "site": "elibrary.aisnet.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc2",
+    "site": "fonts.google.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc3",
+    "site": "grokbase.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc4",
+    "site": "godoc.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc5",
+    "site": "groups.google.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc6",
+    "site": "dynamicland.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc7",
+    "site": "api.statbank.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc8",
+    "site": "www.vice.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadc9",
+    "site": "www.business.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadca",
+    "site": "uffeellemann.blogs.berlingske.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadcb",
+    "site": "mobyproject.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadcc",
+    "site": "nathanleclaire.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadcd",
+    "site": "mycodesmells.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadce",
+    "site": "blog.kowalczyk.info"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadcf",
+    "site": "raspberrypi.stackexchange.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd0",
+    "site": "unix.stackexchange.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd1",
+    "site": "www.spacex.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd2",
+    "site": "lists.debian.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd3",
+    "site": "wiki.debian.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd4",
+    "site": "miloserdov.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd5",
+    "site": "www.thegeekstuff.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd6",
+    "site": "www.tecmint.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd7",
+    "site": "superuser.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd8",
+    "site": "www.salon.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadd9",
+    "site": "weworkweplay.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadda",
+    "site": "mycyberuniverse.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aaddb",
+    "site": "frillip.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aaddc",
+    "site": "www.husforbi.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aaddd",
+    "site": "thehill.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aadde",
+    "site": "eng.brock.dk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aaddf",
+    "site": "wiki.archlinux.org"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade0",
+    "site": "towardsdatascience.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade1",
+    "site": "beta.observablehq.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade2",
+    "site": "qdosmsq.dunbar-it.co.uk"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade3",
+    "site": "discuss.atom.io"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade4",
+    "site": "help.twitter.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade5",
+    "site": "www.quora.com"
+  },
+  {
+    "_id": "5a81b20ed571cc61af7aade6",
+    "site": "handbrake.fr"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aade7",
+    "site": "flight-manual.atom.io"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aade8",
+    "site": "tldp.org"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aade9",
+    "site": "blog.gopheracademy.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadea",
+    "site": "wireless.wiki.kernel.org"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadeb",
+    "site": "track.adform.net"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadec",
+    "site": "www.elgiganten.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aaded",
+    "site": "alternativeto.net"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadee",
+    "site": "apple.stackexchange.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadef",
+    "site": "gobyexample.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf0",
+    "site": "choly.ca"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf1",
+    "site": "www.maketecheasier.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf2",
+    "site": "serverfault.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf3",
+    "site": "www.infoworld.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf4",
+    "site": "regex101.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf5",
+    "site": "www.dotnetperls.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf6",
+    "site": "www.regextester.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf7",
+    "site": "www.golangprograms.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf8",
+    "site": "answers.splunk.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadf9",
+    "site": "play.golang.org"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadfa",
+    "site": "forum.uipath.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadfb",
+    "site": "studypedia.au.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadfc",
+    "site": "www.sheffield.ac.uk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadfd",
+    "site": "live.midttrafik.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadfe",
+    "site": "www.flemming-vvs.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aadff",
+    "site": "recovernordic.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae00",
+    "site": "status.digitalocean.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae01",
+    "site": "danbolig.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae02",
+    "site": "www.cs.nott.ac.uk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae03",
+    "site": "www.datalogforeningen.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae04",
+    "site": "etc.etxt.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae05",
+    "site": "www.who.int"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae06",
+    "site": "www.khanacademy.org"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae07",
+    "site": "tap.iop.org"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae08",
+    "site": "www.boligsiden.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae09",
+    "site": "home.dk"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae0a",
+    "site": "mkorn.binaervarianz.de"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae0b",
+    "site": "www.shannonvallor.net"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae0c",
+    "site": "global.oup.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae0d",
+    "site": "twittercommunity.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae0e",
+    "site": "www.alexa.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae0f",
+    "site": "www.wpbeginner.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae10",
+    "site": "news.netcraft.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae11",
+    "site": "www.tomakewebsite.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae12",
+    "site": "www.xislegraphix.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae13",
+    "site": "developer.similarweb.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae14",
+    "site": "www.facebook.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae15",
+    "site": "fantasy.nfl.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae16",
+    "site": "docs.mongodb.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae17",
+    "site": "www.mongodb.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae18",
+    "site": "mongodb.github.io"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae19",
+    "site": "www.scriptingmaster.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae1a",
+    "site": ""
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae1b",
+    "site": "nodejs.org"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae1c",
+    "site": "june07.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae1d",
+    "site": "66710.typeform.com"
+  },
+  {
+    "_id": "5a81b20fd571cc61af7aae1e",
+    "site": "se.mathworks.com"
+  },
+  {
+    "_id": "5a8297776811dd65a0387915",
+    "site": "nikkb.dk"
+  },
+  {
+    "_id": "5a82991b6811dd65a038793b",
+    "site": "docs.python.org"
+  },
+  {
+    "_id": "5a82991b6811dd65a038793c",
+    "site": "www.pythonforbeginners.com"
+  }
+]

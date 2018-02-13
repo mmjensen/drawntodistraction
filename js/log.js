@@ -198,7 +198,15 @@ function newSiteVisit(site, tabId) {
 function getHostname(url) {
     var parser = document.createElement('a');
     parser.href = url;
-    return parser.hostname;
+    var protocol =  parser.protocol
+    var host = parser.host
+    if(protocol === "file:"){
+        return "file"
+    } else if (protocol == "https:" || protocol == "https:"){
+        return host.replace(/^(www)(\.)/i,"");
+    } else {
+        return protocol + host;
+    }
 }
 
 /*

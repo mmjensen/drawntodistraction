@@ -1,0 +1,134 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <table id="sites">
+<tr id="t_head"><th>Site</th><th class="category">Category</th><th>Alias'</th><th>is alias?</th><th>Update</th></tr>
+<tr>
+</table>
+<script src="categories.json"></script>
+<script src="sites.json"></script>
+<script>
+    var list = document.querySelector("#sites");
+
+    for( var i = 0 ; i < sites.length ; i++ ) {
+            addSite(sites[i])
+    }
+
+    function addSite(jsObj){
+        //if jsonObj has ?
+        var r = list.insertRow()
+        site = r.insertCell()
+        site.innerHTML = jsObj.site
+
+        category = r.insertCell()
+        category.classList.add("category")
+        var select = document.createElement("select")
+        select.classList.add("cat")
+
+        for ( var k in categories){
+            opt = document.createElement("option")
+            opt.value = k;
+            opt.innerHTML = k;
+            select.appendChild(opt)
+        }
+
+        //set value based on object
+        select.value = "Unknown"
+        select.onchange = categoryChangeHandler
+        category.appendChild(select)
+
+        var selectnd = document.createElement("select")
+
+        selectnd.classList.add("sub")
+        selectnd.classList.add("hidden")
+
+        selectnd.onchange = subCategoryChangeHandler
+        // set value based on object
+
+        category.appendChild(selectnd)
+
+        alias = r.insertCell()
+        alias.innerHTML = '<input type="text" placeholder="alias, comma seperated">'
+        alias.onblur = blurHandler
+
+        is_alias = r.insertCell()
+        is_alias.innerHTML = '<input type="checkbox">';
+        is_alias.onclick = aliasHandler
+
+        update = r.insertCell()
+        update.innerHTML = '<div class="update hidden">Update</div>';
+        update.onclick = updateHandler
+
+    }
+
+    function subCategoryChangeHandler(e){
+        siteChanged(e.target.parentNode)
+    }
+
+    function categoryChangeHandler(e){
+        var sub = e.target.parentNode.querySelector(".sub")
+        sub.innerHTML = ""
+        var subs = categories[e.target.value]
+        for ( var i = 0; i < subs.length; i++ ) {
+            opt = document.createElement("option")
+            opt.value = subs[i];
+            opt.innerHTML = subs[i];
+            sub.appendChild(opt)
+        }
+        sub.classList.remove("hidden")
+        siteChanged(e.target.parentNode.parentNode)
+    }
+
+    function blurHandler(e){
+        console.log(e)
+    }
+
+    function updateHandler(e){
+        var row = e.target.parentNode.parentNode
+        e.target.classList.add("hidden")
+    }
+
+    function aliasHandler(e){
+        console.log(e)
+    }
+
+    function siteChanged(row){
+        row.querySelector(".update").classList.remove("hidden")
+    }
+
+    function getSites(callback){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://cio.cs.au.dk/drawntodistraction/sites", true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onload = function(e) {
+            if (e.currentTarget.status === 200) {
+                console.log(e.currentTarget.responseText)
+            } else { console.log("Onload error") }
+        }
+        xhr.onerror = function(e) {
+            console.log("Onerror error")
+        }
+        xhr.send();
+    }
+
+    function postSite(site){
+        // Sending and receiving data in JSON format using POST method
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://cio.cs.au.dk/drawntodistraction/sites", true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onload = function(e) {
+            if (e.currentTarget.status === 200) {
+                console.log("Saved site to server!")
+            } else { console.log("Onload error") }
+        }
+        xhr.onerror = function(e) {
+            console.log("Onerror error")
+        }
+        xhr.send(JSON.stringify(site));
+    }
+</script>
+
+</body>
+</html>
