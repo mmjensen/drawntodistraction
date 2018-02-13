@@ -12,6 +12,7 @@
             <th class="category">Category</th>
             <th>Alias'</th>
             <th>is alias?</th>
+            <th>Count</th>
             <th>Update</th>
         </tr>
         <tr>
@@ -101,6 +102,9 @@
 
             is_alias.querySelector("input").onclick = aliasHandler
             is_alias.classList.add("is_alias")
+
+            count = r.insertCell()
+            count.innerHTML = jsObj.count || 0
 
             update = r.insertCell()
             update.innerHTML = '<div class="update hidden">Update</div>';
