@@ -122,7 +122,7 @@ chrome.runtime.onInstalled.addListener(function(e) {
         windows.forEach(function(w) {
             w.tabs.forEach(function(tab) {
                 if (tab.url != "chrome://extensions/") {
-                    chrome.tabs.reload(tab.id)
+                    //chrome.tabs.reload(tab.id)
                 }
             })
         })
@@ -240,7 +240,7 @@ function logAction(site, action) {
 }
 
 function log(msg) {
-
+    console.log(msg.site)
     var obj = {}
     msg.userID = userID;
     obj[Date.now()] = msg;
